@@ -61,7 +61,7 @@ Hybird-SORT code is based on [OC-SORT](https://github.com/noahcao/OC_SORT) and [
 Step1. Install Hybird_SORT
 
 ```shell
-git clone https://github.com/ymzis69/Hybird_SORT.git
+git clone https://github.com/ymzis69/HybirdSORT.git
 cd Hybird_SORT
 pip3 install -r requirements.txt
 python3 setup.py develop
