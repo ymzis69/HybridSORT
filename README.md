@@ -13,7 +13,7 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 
 ### Highlights
 
-- Hybird-SORT is a SOTA heuristic trackers on DanceTrack and performs excellently on MOT17/MOT20 datasets.
+- Hybird-SORT is a **SOTA** heuristic trackers on DanceTrack and performs excellently on MOT17/MOT20 datasets.
 - Maintains **Simple, Online and Real-Time (SORT)** characteristics.
 - **Training-free** and **plug-and-play** manner.
 - **Strong generalization** for diverse trackers and scenarios
