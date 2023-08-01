@@ -1,0 +1,7 @@
+_BASE_: ../Base-bagtricks.yml
+
+DATASETS:
+  NAMES: ("DanceTrack",)
+  TESTS: ("DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/dancetrack/bagtricks_R50

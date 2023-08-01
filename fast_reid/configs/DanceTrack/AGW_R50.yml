@@ -1,0 +1,7 @@
+_BASE_: ../Base-AGW.yml
+
+DATASETS:
+  NAMES: ("DanceTrack",)
+  TESTS: ("DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/dancetrack/agw_R50

@@ -1,0 +1,11 @@
+_BASE_: ../Base-MGN.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("CUHKSYSU",)
+  TESTS: ("CUHKSYSU",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU/mgn_R50-ibn

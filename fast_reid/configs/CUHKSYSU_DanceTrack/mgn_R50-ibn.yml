@@ -1,0 +1,11 @@
+_BASE_: ../Base-MGN.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("CUHKSYSU_DanceTrack",)
+  TESTS: ("CUHKSYSU_DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU_DanceTrack/mgn_R50-ibn

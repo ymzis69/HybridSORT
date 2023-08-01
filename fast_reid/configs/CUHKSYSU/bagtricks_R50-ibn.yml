@@ -1,0 +1,11 @@
+_BASE_: ../Base-bagtricks.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("CUHKSYSU",)
+  TESTS: ("CUHKSYSU",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU/bagtricks_R50-ibn

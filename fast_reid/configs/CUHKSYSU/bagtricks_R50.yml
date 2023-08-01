@@ -1,0 +1,7 @@
+_BASE_: ../Base-bagtricks.yml
+
+DATASETS:
+  NAMES: ("CUHKSYSU",)
+  TESTS: ("CUHKSYSU",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU/bagtricks_R50
