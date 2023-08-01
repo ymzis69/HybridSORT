@@ -1,0 +1,11 @@
+_BASE_: ../Base-AGW.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("CUHKSYSU_DanceTrack",)
+  TESTS: ("CUHKSYSU_DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU_DanceTrack/agw_R50-ibn

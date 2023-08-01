@@ -1,0 +1,12 @@
+_BASE_: ../Base-SBS.yml
+
+MODEL:
+  BACKBONE:
+    DEPTH: 101x
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("DanceTrack",)
+  TESTS: ("DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/dancetrack/sbs_R101-ibn

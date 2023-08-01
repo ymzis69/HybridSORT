@@ -1,0 +1,7 @@
+_BASE_: ../Base-SBS.yml
+
+DATASETS:
+  NAMES: ("DanceTrack",)
+  TESTS: ("DanceTrack",)
+
+OUTPUT_DIR: fast_reid/logs/dancetrack/sbs_R50

@@ -1,0 +1,7 @@
+_BASE_: ../Base-SBS.yml
+
+DATASETS:
+  NAMES: ("CUHKSYSU",)
+  TESTS: ("CUHKSYSU",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU/sbs_R50

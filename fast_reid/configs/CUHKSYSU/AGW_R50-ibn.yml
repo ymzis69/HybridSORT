@@ -1,0 +1,11 @@
+_BASE_: ../Base-AGW.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+
+DATASETS:
+  NAMES: ("CUHKSYSU",)
+  TESTS: ("CUHKSYSU",)
+
+OUTPUT_DIR: fast_reid/logs/CUHKSYSU/agw_R50-ibn
