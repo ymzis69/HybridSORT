@@ -62,7 +62,7 @@ Step1. Install Hybird_SORT
 
 ```shell
 git clone https://github.com/ymzis69/HybirdSORT.git
-cd Hybird_SORT
+cd HybirdSORT
 pip3 install -r requirements.txt
 python3 setup.py develop
 ```
