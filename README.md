@@ -6,7 +6,6 @@
 
 > [**Hybrid-SORT: Weak Cues Matter for Online Multi-Object Tracking**](https://arxiv.org/abs/2308.00783)
 > 
-> Mingzhan Yang, Guangxin Han, Bin Yan, Wenhua Zhang, Jinqing Qi, Huchuan Lu, Dong Wang
 
 ## Abstract
 
