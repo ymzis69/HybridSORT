@@ -381,9 +381,15 @@ python3 tools/run_deepsort.py -f exps/example/mot/yolox_x_ablation.py -c pretrai
 ## Citation
 
 If you find this work useful, please consider to cite our paper:
-
 ```
-
+@misc{yang2023hybridsort,
+     title={Hybrid-SORT: Weak Cues Matter for Online Multi-Object Tracking},
+     author={Mingzhan Yang and Guangxin Han and Bin Yan and Wenhua Zhang and Jinqing Qi and Huchuan Lu and Dong Wang},
+     year={2023},
+     eprint={2308.00783},
+     archivePrefix={arXiv},
+     primaryClass={cs.CV}
+}
 ```
 
 ## Acknowledgement
