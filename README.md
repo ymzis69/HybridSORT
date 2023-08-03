@@ -4,8 +4,9 @@
 
 #### Hybird-SORT is a simply and strong multi-object tracker.
 
+> [**Hybrid-SORT: Weak Cues Matter for Online Multi-Object Tracking**](https://arxiv.org/abs/2308.00783)
 > 
->
+> Mingzhan Yang, Guangxin Han, Bin Yan, Wenhua Zhang, Jinqing Qi, Huchuan Lu, Dong Wang
 
 ## Abstract
 
@@ -26,7 +27,7 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 
 ## News
 
-* [08/01/2023]: The [arxiv preprint]() of Hybird-SORT is released.
+* [08/01/2023]: The [arxiv preprint](https://arxiv.org/abs/2308.00783) of Hybird-SORT is released.
 
 ## Tracking performance
 
