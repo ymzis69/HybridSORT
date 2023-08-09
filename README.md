@@ -118,11 +118,11 @@ pip install -r fast_reid/docs/requirements.txt
    |        └——————labels_with_ids
    └——————dancetrack        
             └——————train
+               └——————train_seqmap.txt
             └——————val
+               └——————val_seqmap.txt
             └——————test
-            └——————train_seqmap.txt
-            └——————val_seqmap.txt
-            └——————test_seqmap.txt
+               └——————test_seqmap.txt
    ```
 
 2. Prepare DanceTrack dataset:
