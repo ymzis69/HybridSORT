@@ -1,8 +1,8 @@
-# Hybird-SORT
+# Hybrid-SORT
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![test](https://img.shields.io/static/v1?label=By&message=Pytorch&color=red)
 
-#### Hybird-SORT is a simply and strong multi-object tracker.
+#### Hybrid-SORT is a simply and strong multi-object tracker.
 
 > [**Hybrid-SORT: Weak Cues Matter for Online Multi-Object Tracking**](https://arxiv.org/abs/2308.00783)
 > 
@@ -13,7 +13,7 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 
 ### Highlights
 
-- Hybird-SORT is a **SOTA** heuristic trackers on DanceTrack and performs excellently on MOT17/MOT20 datasets.
+- Hybrid-SORT is a **SOTA** heuristic trackers on DanceTrack and performs excellently on MOT17/MOT20 datasets.
 - Maintains **Simple, Online and Real-Time (SORT)** characteristics.
 - **Training-free** and **plug-and-play** manner.
 - **Strong generalization** for diverse trackers and scenarios
@@ -25,8 +25,8 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 </center>
 
 ## News
-
-* [08/01/2023]: The [arxiv preprint](https://arxiv.org/abs/2308.00783) of Hybird-SORT is released.
+* [08/24/2023]: Hybrid-SORT is supported in [yolo_tracking](https://github.com/mikel-brostrom/yolo_tracking). Many thanks to @mikel-brostrom for the contribution.
+* [08/01/2023]: The [arxiv preprint](https://arxiv.org/abs/2308.00783) of Hybrid-SORT is released.
 
 ## Tracking performance
 
@@ -35,34 +35,34 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 | Tracker          | HOTA | MOTA | IDF1 | FPS  |
 | :--------------- | :--: | :--: | :--: | :--: |
 | OC-SORT          | 54.6 | 89.6 | 54.6 | 30.3 |
-| Hybird-SORT      | 62.2 | 91.6 | 63.0 | 27.8 |
-| Hybird-SORT-ReID | 65.7 | 91.8 | 67.4 | 15.5 |
+| Hybrid-SORT      | 62.2 | 91.6 | 63.0 | 27.8 |
+| Hybrid-SORT-ReID | 65.7 | 91.8 | 67.4 | 15.5 |
 
 ### Results on MOT20 challenge test set
 
 | Tracker          | HOTA | MOTA | IDF1 |
 | :--------------- | :--: | :--: | :--: |
 | OC-SORT          | 62.1 | 75.5 | 75.9 |
-| Hybird-SORT      | 62.5 | 76.4 | 76.2 |
-| Hybird-SORT-ReID | 63.9 | 76.7 | 78.4 |
+| Hybrid-SORT      | 62.5 | 76.4 | 76.2 |
+| Hybrid-SORT-ReID | 63.9 | 76.7 | 78.4 |
 
 ### Results on MOT17 challenge test set
 
 | Tracker          | HOTA | MOTA | IDF1 |
 | :--------------- | :--: | :--: | :--: |
 | OC-SORT          | 63.2 | 78.0 | 77.5 |
-| Hybird-SORT      | 63.6 | 79.3 | 78.4 |
-| Hybird-SORT-ReID | 64.0 | 79.9 | 78.7 |
+| Hybrid-SORT      | 63.6 | 79.3 | 78.4 |
+| Hybrid-SORT-ReID | 64.0 | 79.9 | 78.7 |
 
 ## Installation
 
-Hybird-SORT code is based on [OC-SORT](https://github.com/noahcao/OC_SORT) and [FastReID](https://github.com/JDAI-CV/fast-reid). The ReID component is optional and based on [FastReID](https://github.com/JDAI-CV/fast-reid). Tested the code with Python 3.8 + Pytorch 1.10.0 + torchvision 0.11.0.
+Hybrid-SORT code is based on [OC-SORT](https://github.com/noahcao/OC_SORT) and [FastReID](https://github.com/JDAI-CV/fast-reid). The ReID component is optional and based on [FastReID](https://github.com/JDAI-CV/fast-reid). Tested the code with Python 3.8 + Pytorch 1.10.0 + torchvision 0.11.0.
 
-Step1. Install Hybird_SORT
+Step1. Install Hybrid_SORT
 
 ```shell
-git clone https://github.com/ymzis69/HybirdSORT.git
-cd HybirdSORT
+git clone https://github.com/ymzis69/HybridSORT.git
+cd HybridSORT
 pip3 install -r requirements.txt
 python3 setup.py develop
 ```
@@ -91,7 +91,7 @@ pip install -r fast_reid/docs/requirements.txt
 
 **Our data structure is the same as [OC-SORT](https://github.com/noahcao/OC_SORT).** 
 
-1. Download [MOT17](https://motchallenge.net/), [MOT20](https://motchallenge.net/), [CrowdHuman](https://www.crowdhuman.org/), [Cityperson](https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md), [ETHZ](https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md), [DanceTrack](https://github.com/DanceTrack/DanceTrack), [CUHKSYSU](http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html) and put them under <HYBIRDSORT_HOME>/datasets in the following structure (CrowdHuman, Cityperson and ETHZ are not needed if you download YOLOX weights from [ByteTrack](https://github.com/ifzhang/ByteTrack) or [OC-SORT](https://github.com/noahcao/OC_SORT)) :
+1. Download [MOT17](https://motchallenge.net/), [MOT20](https://motchallenge.net/), [CrowdHuman](https://www.crowdhuman.org/), [Cityperson](https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md), [ETHZ](https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md), [DanceTrack](https://github.com/DanceTrack/DanceTrack), [CUHKSYSU](http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html) and put them under <HybridSORT_HOME>/datasets in the following structure (CrowdHuman, Cityperson and ETHZ are not needed if you download YOLOX weights from [ByteTrack](https://github.com/ifzhang/ByteTrack) or [OC-SORT](https://github.com/noahcao/OC_SORT)) :
 
    ```
    datasets
@@ -142,7 +142,7 @@ pip install -r fast_reid/docs/requirements.txt
 4. [optional] Prepare ReID datasets:
 
    ```
-   cd <HYBIRDSORT_HOME>
+   cd <HybridSORT_HOME>
    
    # For MOT17 
    python3 fast_reid/datasets/generate_mot_patches.py --data_path <dataets_dir> --mot 17
@@ -159,12 +159,12 @@ pip install -r fast_reid/docs/requirements.txt
 Download and store the trained models in 'pretrained' folder as follow:
 
 ```
-<HYBIRDSORT_HOME>/pretrained
+<HybridSORT_HOME>/pretrained
 ```
 
 ### Detection Model
 
-We provide some pretrained YOLO-X weights for Hybird-SORT, which are inherited from [ByteTrack](https://github.com/ifzhang/ByteTrack).
+We provide some pretrained YOLO-X weights for Hybrid-SORT, which are inherited from [ByteTrack](https://github.com/ifzhang/ByteTrack).
 
 | Dataset         | HOTA | IDF1 | MOTA | Model                                                        |
 | --------------- | ---- | ---- | ---- | ------------------------------------------------------------ |
@@ -191,9 +191,9 @@ Ours ReID models for **MOT17/MOT20** is the same as [BoT-SORT](https://github.co
 
 ### Train the Detection Model
 
-You can use Hybird-SORT without training by adopting existing detectors. But we borrow the training guidelines from ByteTrack in case you want work on your own detector. 
+You can use Hybrid-SORT without training by adopting existing detectors. But we borrow the training guidelines from ByteTrack in case you want work on your own detector. 
 
-Download the COCO-pretrained YOLOX weight [here](https://github.com/Megvii-BaseDetection/YOLOX/tree/0.1.0) and put it under *\<HYBIRDSORT_HOME\>/pretrained*.
+Download the COCO-pretrained YOLOX weight [here](https://github.com/Megvii-BaseDetection/YOLOX/tree/0.1.0) and put it under *\<HybridSORT_HOME\>/pretrained*.
 
 * **Train ablation model (MOT17 half train and CrowdHuman)**
 
@@ -253,7 +253,7 @@ Refer to [FastReID](https://github.com/JDAI-CV/fast-reid)  repository for additi
 **Notes**:
 
 
-* Some parameters are set in the cfg.py. For example, if you run Hybird-SORT on the dancetrack-val dataset, you should pay attention to the line 35-45 in ```exps/example/mot/yolox_dancetrack_val_hybird_sort.py``` .
+* Some parameters are set in the cfg.py. For example, if you run Hybrid-SORT on the dancetrack-val dataset, you should pay attention to the line 35-45 in ```exps/example/mot/yolox_dancetrack_val_Hybrid_sort.py``` .
 * We set  ```fp16==False``` on the MOT datasets becacuse fp16 will lead to significant result fluctuations.
 
 ### DanceTrack
@@ -261,21 +261,21 @@ Refer to [FastReID](https://github.com/JDAI-CV/fast-reid)  repository for additi
 **dancetrack-val dataset**
 
 ```
-# Hybird-SORT
-python tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_dancetrack_val_hybird_sort.py -b 1 -d 1 --fp16 --fuse --expn $exp_name 
+# Hybrid-SORT
+python tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_dancetrack_val_Hybrid_sort.py -b 1 -d 1 --fp16 --fuse --expn $exp_name 
 
-# Hybird-SORT-ReID
-python tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_dancetrack_val_hybird_sort_reid.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
+# Hybrid-SORT-ReID
+python tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_dancetrack_val_Hybrid_sort_reid.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
 ```
 
 **dancetrack-test dataset**
 
 ```
-# Hybird-SORT
-python tools/run_hybird_sort_dance.py --test -f exps/example/mot/yolox_dancetrack_test_hybird_sort.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
+# Hybrid-SORT
+python tools/run_Hybrid_sort_dance.py --test -f exps/example/mot/yolox_dancetrack_test_Hybrid_sort.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
 
-# Hybird-SORT-ReID
-python tools/run_hybird_sort_dance.py --test -f exps/example/mot/yolox_dancetrack_test_hybird_sort_reid.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
+# Hybrid-SORT-ReID
+python tools/run_Hybrid_sort_dance.py --test -f exps/example/mot/yolox_dancetrack_test_Hybrid_sort_reid.py -b 1 -d 1 --fp16 --fuse --expn $exp_name
 ```
 
 ### MOT20
@@ -283,14 +283,14 @@ python tools/run_hybird_sort_dance.py --test -f exps/example/mot/yolox_dancetrac
 **MOT20-test dataset**
 
 ```
-#Hybird-SORT
-python tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_mix_mot20_ch_hybird_sort.py -b 1 -d 1 --fuse --mot20 --expn $exp_name 
+#Hybrid-SORT
+python tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_mix_mot20_ch_Hybrid_sort.py -b 1 -d 1 --fuse --mot20 --expn $exp_name 
 
-#Hybird-SORT-ReID
-python tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_mix_mot20_ch_hybird_sort_reid.py -b 1 -d 1 --fuse --mot20 --expn $exp_name
+#Hybrid-SORT-ReID
+python tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_mix_mot20_ch_Hybrid_sort_reid.py -b 1 -d 1 --fuse --mot20 --expn $exp_name
 ```
 
-Hybird-SORT is designed for online tracking, but offline interpolation has been demonstrated efficient for many cases and used by other online trackers. If you want to reproduct out result on  **MOT20-test** dataset, please use the linear interpolation over existing tracking results:
+Hybrid-SORT is designed for online tracking, but offline interpolation has been demonstrated efficient for many cases and used by other online trackers. If you want to reproduct out result on  **MOT20-test** dataset, please use the linear interpolation over existing tracking results:
 
 ```shell
 # offline post-processing
@@ -302,24 +302,24 @@ python3 tools/interpolation.py $result_path $save_path
 **MOT17-val dataset**
 
 ```
-# Hybird-SORT
-python3 tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_ablation_hybird_sort.py -b 1 -d 1 --fuse --expn $exp_name 
+# Hybrid-SORT
+python3 tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_ablation_Hybrid_sort.py -b 1 -d 1 --fuse --expn $exp_name 
 
-# Hybird-SORT-ReID
-python3 tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_ablation_hybird_sort_reid.py -b 1 -d 1 --fuse --expn  $exp_name 
+# Hybrid-SORT-ReID
+python3 tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_ablation_Hybrid_sort_reid.py -b 1 -d 1 --fuse --expn  $exp_name 
 ```
 
 **MOT17-test dataset**
 
 ```
-# Hybird-SORT
-python3 tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_mix_det_hybird_sort.py -b 1 -d 1 --fuse --expn $exp_name
+# Hybrid-SORT
+python3 tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_mix_det_Hybrid_sort.py -b 1 -d 1 --fuse --expn $exp_name
 
-# Hybird-SORT-ReID
-python3 tools/run_hybird_sort_dance.py -f exps/example/mot/yolox_x_mix_det_hybird_sort_reid.py -b 1 -d 1 --fuse --expn $exp_name
+# Hybrid-SORT-ReID
+python3 tools/run_Hybrid_sort_dance.py -f exps/example/mot/yolox_x_mix_det_Hybrid_sort_reid.py -b 1 -d 1 --fuse --expn $exp_name
 ```
 
-Hybird-SORT is designed for online tracking, but offline interpolation has been demonstrated efficient for many cases and used by other online trackers. If you want to reproduct out result on  **MOT17-test** dataset, please use the linear interpolation over existing tracking results:
+Hybrid-SORT is designed for online tracking, but offline interpolation has been demonstrated efficient for many cases and used by other online trackers. If you want to reproduct out result on  **MOT17-test** dataset, please use the linear interpolation over existing tracking results:
 
 ```shell
 # offline post-processing
@@ -328,16 +328,16 @@ python3 tools/interpolation.py $result_path $save_path
 
 ### Demo
 
-Hybird-SORT, with the parameter settings of the dancetrack-val dataset
+Hybrid-SORT, with the parameter settings of the dancetrack-val dataset
 
 ```
-python3 tools/demo_track.py --demo_type image -f exps/example/mot/yolox_dancetrack_val_hybird_sort.py -c pretrained/ocsort_dance_model.pth.tar --path ./datasets/dancetrack/val/dancetrack0079/img1 --fp16 --fuse --save_result
+python3 tools/demo_track.py --demo_type image -f exps/example/mot/yolox_dancetrack_val_Hybrid_sort.py -c pretrained/ocsort_dance_model.pth.tar --path ./datasets/dancetrack/val/dancetrack0079/img1 --fp16 --fuse --save_result
 ```
 
-Hybird-SORT-ReID, with the parameter settings of the dancetrack-val dataset
+Hybrid-SORT-ReID, with the parameter settings of the dancetrack-val dataset
 
 ```
-python3 tools/demo_track.py --demo_type image -f exps/example/mot/yolox_dancetrack_val_hybird_sort_reid.py -c pretrained/ocsort_dance_model.pth.tar --path ./datasets/dancetrack/val/dancetrack0079/img1 --fp16 --fuse --save_result
+python3 tools/demo_track.py --demo_type image -f exps/example/mot/yolox_dancetrack_val_Hybrid_sort_reid.py -c pretrained/ocsort_dance_model.pth.tar --path ./datasets/dancetrack/val/dancetrack0079/img1 --fp16 --fuse --save_result
 ```
 
 <img src="assets/demo.gif" alt="demo" style="zoom:34%;" />
