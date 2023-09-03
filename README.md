@@ -62,7 +62,7 @@ Hybrid-SORT code is based on [OC-SORT](https://github.com/noahcao/OC_SORT) and [
 Step1. Install Hybrid_SORT
 
 ```shell
-git clone https://github.com/ymzis69/HybirdSORT.git
+git clone https://github.com/ymzis69/HybridSORT.git
 cd HybridSORT
 pip3 install -r requirements.txt
 python3 setup.py develop
