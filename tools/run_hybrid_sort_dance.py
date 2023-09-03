@@ -135,12 +135,12 @@ def main(exp, args, num_gpu):
         decoder = None
 
     # start tracking
-    if not args.hybird_sort_with_reid:
-        *_, summary = evaluator.evaluate_hybird_sort(
+    if not args.hybrid_sort_with_reid:
+        *_, summary = evaluator.evaluate_hybrid_sort(
             args, model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_folder
         )
     else:
-        *_, summary = evaluator.evaluate_hybird_sort_reid(
+        *_, summary = evaluator.evaluate_hybrid_sort_reid(
                 args, model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_folder
         )
 

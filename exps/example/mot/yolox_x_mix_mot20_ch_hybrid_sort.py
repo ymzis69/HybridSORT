@@ -16,23 +16,25 @@ class Exp(MyExp):
         self.width = 1.25
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.train_ann = "train.json"
-        self.val_ann = "val_half.json"
-        self.input_size = (800, 1440)
-        self.test_size = (800, 1440)
-        self.random_size = (18, 32)
+        self.val_ann = "test.json"   # change to train.json when running on training set
+        self.input_size = (896, 1600)
+        self.test_size = (896, 1600)
+        #self.test_size = (736, 1920)
+        self.random_size = (20, 36)
         self.max_epoch = 80
         self.print_interval = 20
         self.eval_interval = 5
-        self.test_conf = 0.1
+        self.test_conf = 0.001
         self.nmsthre = 0.7
         self.no_aug_epochs = 10
         self.basic_lr_per_img = 0.001 / 64.0
         self.warmup_epochs = 1
 
-        # tracking params for Hybird-SORT
-        self.ckpt = "pretrained/ocsort_mot17_ablation.pth.tar"
+        # tracking params for Hybrid-SORT
+        self.ckpt = "pretrained/ocsort_x_mot20.pth.tar"
         self.use_byte = True
-        self.dataset = "mot17"
+        self.dataset = "mot20"
+        self.track_thresh = 0.4
         self.inertia = 0.05
         self.iou_thresh = 0.25
         self.asso = "Height_Modulated_IoU"
@@ -40,7 +42,7 @@ class Exp(MyExp):
         self.TCM_byte_step = True
         self.TCM_first_step_weight = 1.0
         self.TCM_byte_step_weight = 1.0
-        self.hybird_sort_with_reid = False
+        self.hybrid_sort_with_reid = False
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False):
         from yolox.data import (
@@ -53,14 +55,14 @@ class Exp(MyExp):
         )
 
         dataset = MOTDataset(
-            data_dir=os.path.join(get_yolox_datadir(), "mix_mot_ch"),
+            data_dir=os.path.join(get_yolox_datadir(), "mix_mot20_ch"),
             json_file=self.train_ann,
             name='',
             img_size=self.input_size,
             preproc=TrainTransform(
                 rgb_means=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),
-                max_labels=500,
+                max_labels=600,
             ),
         )
 
@@ -71,7 +73,7 @@ class Exp(MyExp):
             preproc=TrainTransform(
                 rgb_means=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),
-                max_labels=1000,
+                max_labels=1200,
             ),
             degrees=self.degrees,
             translate=self.translate,
@@ -108,10 +110,10 @@ class Exp(MyExp):
         from yolox.data import MOTDataset, ValTransform
 
         valdataset = MOTDataset(
-            data_dir=os.path.join(get_yolox_datadir(), "mot"),
+            data_dir=os.path.join(get_yolox_datadir(), "MOT20"),
             json_file=self.val_ann,
             img_size=self.test_size,
-            name='train',
+            name='test', # change to train when running on training set
             preproc=ValTransform(
                 rgb_means=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),

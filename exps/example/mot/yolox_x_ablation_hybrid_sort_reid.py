@@ -16,21 +16,21 @@ class Exp(MyExp):
         self.width = 1.25
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.train_ann = "train.json"
-        self.val_ann = "test.json"    # change to train.json when running on training set
+        self.val_ann = "val_half.json"
         self.input_size = (800, 1440)
         self.test_size = (800, 1440)
         self.random_size = (18, 32)
         self.max_epoch = 80
         self.print_interval = 20
         self.eval_interval = 5
-        self.test_conf = 0.001
+        self.test_conf = 0.1
         self.nmsthre = 0.7
         self.no_aug_epochs = 10
         self.basic_lr_per_img = 0.001 / 64.0
         self.warmup_epochs = 1
 
-        # tracking params for Hybird-SORT-ReID
-        self.ckpt = "pretrained/ocsort_x_mot17.pth.tar"
+        # tracking params for Hybrid-SORT-ReID
+        self.ckpt = "pretrained/ocsort_mot17_ablation.pth.tar"
         self.use_byte = True
         self.dataset = "mot17"
         self.inertia = 0.05
@@ -40,7 +40,7 @@ class Exp(MyExp):
         self.TCM_byte_step = True
         self.TCM_first_step_weight = 1.0
         self.TCM_byte_step_weight = 1.0
-        self.hybird_sort_with_reid = True
+        self.hybrid_sort_with_reid = True
         self.with_fastreid =True
         self.EG_weight_high_score= 1.3
         self.EG_weight_low_score= 1.2
@@ -61,7 +61,7 @@ class Exp(MyExp):
         )
 
         dataset = MOTDataset(
-            data_dir=os.path.join(get_yolox_datadir(), "mix_det"),
+            data_dir=os.path.join(get_yolox_datadir(), "mix_mot_ch"),
             json_file=self.train_ann,
             name='',
             img_size=self.input_size,
@@ -119,7 +119,7 @@ class Exp(MyExp):
             data_dir=os.path.join(get_yolox_datadir(), "mot"),
             json_file=self.val_ann,
             img_size=self.test_size,
-            name='test',   # change to train when running on training set
+            name='train',
             preproc=ValTransform(
                 rgb_means=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),

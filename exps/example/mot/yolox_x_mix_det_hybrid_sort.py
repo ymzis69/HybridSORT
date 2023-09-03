@@ -16,34 +16,31 @@ class Exp(MyExp):
         self.width = 1.25
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.train_ann = "train.json"
-        self.val_ann = "val.json"
-        self.test_ann = "val.json"
-        
+        self.val_ann = "test.json"    # change to train.json when running on training set
         self.input_size = (800, 1440)
         self.test_size = (800, 1440)
         self.random_size = (18, 32)
-        self.max_epoch = 8
+        self.max_epoch = 80
         self.print_interval = 20
         self.eval_interval = 5
-        self.test_conf = 0.1
+        self.test_conf = 0.001
         self.nmsthre = 0.7
-        self.no_aug_epochs = 1
+        self.no_aug_epochs = 10
         self.basic_lr_per_img = 0.001 / 64.0
         self.warmup_epochs = 1
 
-        # tracking params for Hybird-SORT
-        self.ckpt = "pretrained/bytetrack_dance_model.pth.tar"
+        # tracking params for Hybrid-SORT
+        self.ckpt = "pretrained/ocsort_x_mot17.pth.tar"
         self.use_byte = True
-        self.dataset = "dancetrack"
+        self.dataset = "mot17"
         self.inertia = 0.05
-        self.iou_thresh = 0.15
+        self.iou_thresh = 0.25
         self.asso = "Height_Modulated_IoU"
         self.TCM_first_step = True
         self.TCM_byte_step = True
         self.TCM_first_step_weight = 1.0
         self.TCM_byte_step_weight = 1.0
-        self.hybird_sort_with_reid = False
-
+        self.hybrid_sort_with_reid = False
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False):
         from yolox.data import (
@@ -56,9 +53,9 @@ class Exp(MyExp):
         )
 
         dataset = MOTDataset(
-            data_dir=os.path.join(get_yolox_datadir(), "dancetrack"),
+            data_dir=os.path.join(get_yolox_datadir(), "mix_det"),
             json_file=self.train_ann,
-            name='train',
+            name='',
             img_size=self.input_size,
             preproc=TrainTransform(
                 rgb_means=(0.485, 0.456, 0.406),
@@ -109,31 +106,18 @@ class Exp(MyExp):
 
     def get_eval_loader(self, batch_size, is_distributed, testdev=False, run_tracking=False):   # [hgx0411] dataloader related
         from yolox.data import MOTDataset, ValTransform
-        
-        if testdev:
-            valdataset = MOTDataset(
-                data_dir=os.path.join(get_yolox_datadir(), "dancetrack"),
-                json_file=self.test_ann,
-                img_size=self.test_size,
-                name='test',
-                preproc=ValTransform(
-                    rgb_means=(0.485, 0.456, 0.406),
-                    std=(0.229, 0.224, 0.225),
-                ),
-                run_tracking=run_tracking
-            )
-        else:
-            valdataset = MOTDataset(
-                data_dir=os.path.join(get_yolox_datadir(), "dancetrack"),
-                json_file=self.val_ann,
-                img_size=self.test_size,
-                name='val',
-                preproc=ValTransform(
-                    rgb_means=(0.485, 0.456, 0.406),
-                    std=(0.229, 0.224, 0.225),
-                ),
-                run_tracking=run_tracking
-            )
+
+        valdataset = MOTDataset(
+            data_dir=os.path.join(get_yolox_datadir(), "mot"),
+            json_file=self.val_ann,
+            img_size=self.test_size,
+            name='test',   # change to train when running on training set
+            preproc=ValTransform(
+                rgb_means=(0.485, 0.456, 0.406),
+                std=(0.229, 0.224, 0.225),
+            ),
+            run_tracking=run_tracking
+        )
 
         if is_distributed:
             batch_size = batch_size // dist.get_world_size()

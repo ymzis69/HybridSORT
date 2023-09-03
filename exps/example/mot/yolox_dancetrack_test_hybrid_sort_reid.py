@@ -31,7 +31,7 @@ class Exp(MyExp):
         self.basic_lr_per_img = 0.001 / 64.0
         self.warmup_epochs = 1
 
-        # tracking params for Hybird-SORT
+        # tracking params for Hybrid-SORT-ReID
         self.ckpt = "pretrained/bytetrack_dance_model.pth.tar"
         self.use_byte = True
         self.dataset = "dancetrack"
@@ -42,7 +42,15 @@ class Exp(MyExp):
         self.TCM_byte_step = True
         self.TCM_first_step_weight = 1.5
         self.TCM_byte_step_weight = 1.0
-        self.hybird_sort_with_reid = False
+        self.hybrid_sort_with_reid = True
+        self.with_fastreid =True
+        self.EG_weight_high_score= 2.8
+        self.EG_weight_low_score= 1.4
+        self.fast_reid_config = "fast_reid/configs/CUHKSYSU_DanceTrack/sbs_S50.yml"
+        self.fast_reid_weights = "pretrained/dancetrack_sbs_S50.pth"
+        self.with_longterm_reid_correction = True
+        self.longterm_reid_correction_thresh = 0.20
+        self.longterm_reid_correction_thresh_low = 1.0
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False):
         from yolox.data import (

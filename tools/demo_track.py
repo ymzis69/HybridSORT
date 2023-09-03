@@ -12,8 +12,8 @@ from yolox.exp import get_exp
 from yolox.utils import fuse_model, get_model_info, postprocess
 from yolox.utils.visualize import plot_tracking, plot_tracking_detection
 from trackers.ocsort_tracker.ocsort import OCSort
-from trackers.hybird_sort_tracker.hybird_sort import Hybird_Sort
-from trackers.hybird_sort_tracker.hybird_sort_reid import Hybird_Sort_ReID
+from trackers.hybrid_sort_tracker.hybrid_sort import Hybrid_Sort
+from trackers.hybrid_sort_tracker.hybrid_sort_reid import Hybrid_Sort_ReID
 from trackers.tracking_utils.timer import Timer
 from fast_reid.fast_reid_interfece import FastReIDInterface
 import copy
@@ -120,15 +120,15 @@ def image_demo(predictor, vis_folder, current_time, args):
     else:
         files = [args.path]
     files.sort()
-    if not args.hybird_sort_with_reid:
-        tracker = Hybird_Sort(args, det_thresh=args.track_thresh,
+    if not args.hybrid_sort_with_reid:
+        tracker = Hybrid_Sort(args, det_thresh=args.track_thresh,
                                     iou_threshold=args.iou_thresh,
                                     asso_func=args.asso,
                                     delta_t=args.deltat,
                                     inertia=args.inertia,
                                     use_byte=args.use_byte)
     else:
-        tracker = Hybird_Sort_ReID(args, det_thresh=args.track_thresh,
+        tracker = Hybrid_Sort_ReID(args, det_thresh=args.track_thresh,
                                     iou_threshold=args.iou_thresh,
                                     asso_func=args.asso,
                                     delta_t=args.deltat,
@@ -218,15 +218,15 @@ def imageflow_demo(predictor, vis_folder, current_time, args):
     vid_writer = cv2.VideoWriter(
         save_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (int(width), int(height))
     )
-    if not args.hybird_sort_with_reid:
-        tracker = Hybird_Sort(args, det_thresh=args.track_thresh,
+    if not args.hybrid_sort_with_reid:
+        tracker = Hybrid_Sort(args, det_thresh=args.track_thresh,
                                     iou_threshold=args.iou_thresh,
                                     asso_func=args.asso,
                                     delta_t=args.deltat,
                                     inertia=args.inertia,
                                     use_byte=args.use_byte)
     else:
-        tracker = Hybird_Sort_ReID(args, det_thresh=args.track_thresh,
+        tracker = Hybrid_Sort_ReID(args, det_thresh=args.track_thresh,
                                     iou_threshold=args.iou_thresh,
                                     asso_func=args.asso,
                                     delta_t=args.deltat,
@@ -287,7 +287,7 @@ def main(exp, args):
     os.makedirs(output_dir, exist_ok=True)
 
     if args.save_result:
-        vis_folder = osp.join(output_dir, str(args.hybird_sort_with_reid), "track_vis")
+        vis_folder = osp.join(output_dir, str(args.hybrid_sort_with_reid), "track_vis")
         os.makedirs(vis_folder, exist_ok=True)
 
     if args.trt:
@@ -339,7 +339,7 @@ def main(exp, args):
         decoder = None
 
     predictor = Predictor(model, exp, trt_file, decoder, args.device, args.fp16,
-                          with_reid=args.with_fastreid, fast_reid_config=args.fast_reid_config, fast_reid_weights=args.fast_reid_weights)      # [hgx0427] with_fastreid
+                          with_reid=args.with_fastreid, fast_reid_config=args.fast_reid_config, fast_reid_weights=args.fast_reid_weights)    
     current_time = time.localtime()
     if args.demo_type == "image":
         image_demo(predictor, vis_folder, current_time, args)
