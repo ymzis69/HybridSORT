@@ -25,7 +25,7 @@ Multi-Object Tracking (MOT) aims to detect and associate all desired objects acr
 </center>
 
 ## News
-
+* [12/09/2023]: Hybrid-SORT is accepted by **AAAI2024**!
 * [08/24/2023]: Hybrid-SORT is supported in [yolo_tracking](https://github.com/mikel-brostrom/yolo_tracking). Many thanks to [@mikel-brostrom](https://github.com/mikel-brostrom) for the contribution.
 * [08/01/2023]: The [arxiv preprint](https://arxiv.org/abs/2308.00783) of Hybrid-SORT is released.
 
